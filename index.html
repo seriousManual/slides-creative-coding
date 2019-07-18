@@ -1,0 +1,159 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/hljs.css">
+    <link rel="stylesheet" href="css/theme/beige.css">
+    <link rel="stylesheet" href="css/mp.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>Creative Coding</h2>
+                <h3>foo and bar</h3>
+            </section>
+
+            <section>
+                <h3>Manuel Ernst</h3>
+                <p><img data-src="media/manu.jpg" width="400"></p>
+                <ul>
+                    <li class="fragment">from Erlangen, <span style="text-decoration: line-through">Bavaria</span> Franconia</li>
+                    <li class="fragment">Software Engineer @ Methodpark</li>
+                    <li class="fragment"><a href="http://www.github.com/seriousManual">@seriousManual</a> on Github &amp; Twitter</li>
+                </ul>
+            </section>
+
+            <section data-transition="fade">
+                <h3>Launchpad Mini</h3>
+                <img data-src="media/launchpad.jpg" width="400">
+                <ul>
+                    <li class="fragment">8x8 buttons</li>
+                    <li class="fragment">8 function buttons in x-direction</li>
+                    <li class="fragment">8 function buttons in y-direction</li>
+                    <li class="fragment">3 colors for each button, in 3 shades</li>
+                </ul>
+            </section>
+
+            <section data-transition="fade">
+                <h4>Launchpad Mini - Initialisation</h4>
+                <pre><code>const launchpad = require('lunchpad')
+const Color = launchpad.Color
+
+launchpad.initialize().then(launchpad =>  {
+
+    // set color by coordinate
+    launchpad.setSquare(0, 0, Color.AMBER)
+
+}, error => console.log(error))</code></pre>
+            </section>
+
+            <section data-transition="fade">
+                <h4>Launchpad Mini - Setting</h4>
+                <pre><code>// set color by coordinate on buttons
+launchpad.setSquare(0, 0, Color.AMBER)
+
+// set color on the x function keys
+launchpad.setFunctionX(0, Color.AMBER)
+
+// set color on the y function keys
+launchpad.setFunctionY(0, Color.AMBER)
+
+// clear everything
+launchpad.clearAll()</code></pre>
+            </section>
+
+            <section data-transition="fade">
+                <h4>Launchpad Mini - Event-Handling</h4>
+                <pre><code>// register event handler on button
+launchpad.on('input', (x, y) => {
+    console.log(x, y)
+})
+
+// register event handler on function button X
+launchpad.on('inputX', x => {
+    console.log(x)
+})
+
+// register event handler on function button Y
+launchpad.on('inputY', y => {
+    console.log(y)
+})</code></pre>
+            </section>
+
+            <section data-transition="fade">
+                <h4>Launchpad Mini - Colors</h4>
+                <pre><code>const { Color } = require('lunchpad')
+
+launchpad.setSquare(0, 0, Color.BLACK)  // unset
+launchpad.setSquare(0, 0, Color.AMBER)  // amber
+launchpad.setSquare(0, 0, Color.RED)    // red
+launchpad.setSquare(0, 0, Color.GREEN)  // green</code></pre>
+            </section>
+
+            <section data-transition="fade">
+                <h3>Launchpad Mini - Setup</h3>
+                <pre><code>$ git clone git@github.com:methodpark/creative-coding.git
+$ cd creative-coding
+$ npm i 
+
+$ npm run drawing
+$ npm run gol
+$ npm run connect-four
+$ npm run snake</code></pre>
+                Reference- and Trouble-Shooting-Guide at:
+                <a href="https://github.com/methodpark/creative-coding">https://github.com/methodpark/creative-coding</a>
+            </section>
+
+            <section data-transition="fade">
+                <h4>Cheatsheet</h4>
+                <pre><code>const launchpad = require('lunchpad')
+const Color = launchpad.Color
+
+launchpad.initialize().then(launchpad =>  {
+    launchpad.setSquare(0, 0, Color.AMBER)
+    launchpad.setFunctionX(0, Color.RED)
+    launchpad.setFunctionY(0, Color.GREEN)
+
+    launchpad.on('input', (x, y) => console.log(x, y))
+    launchpad.on('inputX', x => console.log(x))
+    launchpad.on('inputY', y => console.log(y))
+}, error => console.log(error))</code></pre>
+                </section>
+        </div>
+    </div>
+    <script src="js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            progress: true,
+            slideNumber: true,
+            history: true,
+            slideNumber: true,
+            dependencies: [
+                // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+                { src: 'js/classList.js', condition: function () { return !document.body.classList; } },
+
+                // Interpret Markdown in <section> elements
+                { src: 'js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+                { src: 'js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+
+                // Syntax highlight for <code> elements
+                { src: 'js/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+
+                // Zoom in and out with Alt+click
+                { src: 'js/plugin/zoom-js/zoom.js', async: true },
+
+                // Speaker notes
+                { src: 'js/plugin/notes/notes.js', async: true },
+
+                // MathJax
+                //{ src: 'js/plugin/math/math.js', async: true }
+            ]
+        });
+    </script>
+</body>
+
+</html>

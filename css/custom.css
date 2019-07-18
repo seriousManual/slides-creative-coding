@@ -1,0 +1,16 @@
+.reveal code {
+  /* border: 1px solid red;
+  background-color: #333;
+  color: #f00; */
+}
+
+.source, .source a {
+  font-size: 22px !important;
+  color: #ccc;
+  font-style: italic;
+}
+
+code {
+  color: yellow;
+  background-color: #000;
+}

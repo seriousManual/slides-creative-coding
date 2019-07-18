@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "cmpe-webdev-react-slides",
+  "version": "1.0.0",
+  "description": "Slides for CMPE Web Frontend Development with React/Redux/Saga",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "start": "pushstate-server ."
+  },
+  "keywords": [],
+  "license": "UNKNOWN",
+  "dependencies": {
+    "pushstate-server": "^3.0.1"
+  }
+}

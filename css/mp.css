@@ -1,0 +1,51 @@
+div.logo {
+    content: url(../media/mplogo.png);
+    position: fixed;
+    top: 2vh;
+    right: 2vw;
+    width: 20vw;
+}
+
+div.bar-blue {
+    position: fixed;
+    left: 1vw;
+    top: 10vh;
+    width: 3vw;
+    height: 100%;
+    background-color: #003c72;
+    z-index: 10;
+}
+
+div.bar-orange {
+    position: fixed;
+    left: 4vw;
+    top: 12.7vh;
+    width: 1vw;
+    height: 100%;
+    background-color: #e77e1d;
+    z-index: 8;
+}
+
+.reveal .slides section .fragment.highlight-red.visible {
+  color: #e77e1d;
+}
+
+.reveal .slides section .fragment.highlight-current-red.current-fragment {
+  color: #e77e1d;
+}
+
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color: #003c72; }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color: #003c72; }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color: #003c72; }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color: #003c72; }
